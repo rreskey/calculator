@@ -1,38 +1,62 @@
-.App {
-  text-align: center;
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+  font-size: 62.5%;
+  padding: 0;
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+main {
+  font-size: 2rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+body {
+  background-color: azure;
+}
+
+.wrapper {
+  height: 100vh;
   flex-direction: column;
+}
+
+.wrapper, .numpad {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.numpad {
+  flex-direction: row;
+  width: 25%;
+  flex-wrap: wrap;
+  border: 3px solid black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.number {
+  order: -1;
+  text-align: center;
+  border: 1px solid palevioletred;
+  flex-basis: 33.3%;
+
+}
+.number:last-of-type {
+  flex-basis: 100%;
+}
+
+.result {
+  width: 25%;
+  text-align: right;
+  background-color: black;
+}
+
+.equation {
+  color: gray
+}
+
+.eval {
+  color: goldenrod
 }
