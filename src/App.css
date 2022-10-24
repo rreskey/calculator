@@ -37,26 +37,76 @@ body {
 }
 
 .number {
-  order: -1;
   text-align: center;
-  border: 1px solid palevioletred;
-  flex-basis: 33.3%;
-
+  border: 1px solid #272343;
+  flex-basis: 30%;
+  padding: 2rem 1rem;
+  border-radius: 10px;
+  margin: 5px;
+  cursor: pointer;
 }
+
 .number:last-of-type {
-  flex-basis: 100%;
+  flex-basis: 95%;
 }
 
 .result {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   width: 25%;
-  text-align: right;
-  background-color: black;
+  background-color: #fef6e4;
+  border: 3px solid black;
+  border-bottom: none;
 }
 
-.equation {
-  color: gray
+.result .equation {
+  color: gray;
+  padding-inline-end: 2rem;
+  padding-block-start: 1rem;
+  font-size: 2.5rem;
+  background-color: transparent;
+  border: none;
 }
 
-.eval {
-  color: goldenrod
+.result .eval {
+  color: #172c66;
+  font-size: 3rem;
+  padding-inline-end: 2rem;
+  padding-block-end: 0.5rem;
+}
+
+.key {
+  background-color: #8bd3dd;
+  color: #fffffe;
+}
+
+.key:hover {
+  background-color: #32615E;
+}
+
+.CA, .C {
+  background-color: #f25f4c; 
+  color: #E3E6E7;
+}
+
+.CA:hover, .C:hover {
+  background-color: #ed2669;
+} 
+
+.utils {
+  background-color: #bae8e8;
+}
+
+.utils:hover {
+  background-color: #6246ea;
+  color: #fffffe;
+}
+
+.equal {
+  background-color: #3da9fc;
+}
+
+.equal:hover {
+  background-color: #53C1F0;
 }

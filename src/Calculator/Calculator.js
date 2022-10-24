@@ -1,7 +1,6 @@
 import React from 'react';
 
 const stringify = (str) => {
-    // if (!number.keyTrigger === '=' ) return 
     const arr = [];
     let char = '';
     for (const character of str) {
@@ -23,9 +22,11 @@ const stringify = (str) => {
 }
 
 const calculate = (stringArr) => {
-    const operatorPrecedence = [{'^': (a, b) => Math.pow(a, b)},
-               {'*': (a, b) => a * b, '/': (a, b) => a / b},
-               {'+': (a, b) => a + b, '-': (a, b) => a - b}];
+    const operatorPrecedence = [
+        {'^': (a, b) => Math.pow(a, b)},
+        {'*': (a, b) => a * b, '/': (a, b) => a / b},
+        {'+': (a, b) => a + b, '-': (a, b) => a - b}
+    ];
     let operator;
     for (const operators of operatorPrecedence) {
         const newArr = [];
@@ -46,13 +47,26 @@ const calculate = (stringArr) => {
     return (stringArr.length > 1) ? stringArr : stringArr[0];
 }
 
-function Calculator({number, setAnswer, display, expression}) {
+function Calculator({id, keyCode, number, setAnswer, clearAll, clear, display, expression, className}) {
+    const [active, setActive] = React.useState(false);
+    const _active = () => {
+        setActive(true);
+        setTimeout(() => {
+            setActive(false)
+        }, 300);
+    }
+    
     return (
         <div onClick={() => {
-            if(number.keyTrigger == '=')  {
+            _active()
+            if(number.keyTrigger === '=')  {
                setAnswer(calculate(stringify(expression)))
-            } else display(`${number.keyTrigger}`)
-        }} className='number'>
+            } else if (number.keyTrigger === 'C') {
+                clear()
+            } else if (number.keyTrigger === 'CA') {
+                clearAll()
+            } else display(`${number.keyTrigger}`, number.keyCode)
+        }} id={id} className={`number ${className} ${active && 'pressed'}`}>
             <p>{number.keyTrigger}</p>
         </div>
     )
